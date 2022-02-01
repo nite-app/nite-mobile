@@ -6,6 +6,8 @@ import {
   KeyboardAvoidingView,
   TextInput,
   TouchableOpacity,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
@@ -40,55 +42,57 @@ const LoginScreen = (props) => {
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <LinearGradient
-        colors={["#FFFFFF", "#D0D4E3"]}
-        start={{ x: 0, y: 0.1 }}
-        end={{ x: 1, y: 0.9 }}
-        style={{
-          flex: 1,
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
-        <View style={styles.textContainer}>
-          <Text style={styles.Title}>Hello Again!</Text>
-          <Text style={styles.Subtitle}>
-            Welcome back, You have been missed!
-          </Text>
-        </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-            style={styles.input}
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            style={styles.input}
-            secureTextEntry
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={handleLogin} style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.registerContainer}>
-          <TouchableOpacity
-            style={styles.registerBtn}
-            onPress={() => {
-              navigation.navigate("Register");
-            }}
-          >
-            <Text style={styles.registerText}>Register</Text>
-          </TouchableOpacity>
-        </View>
-      </LinearGradient>
-    </KeyboardAvoidingView>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <LinearGradient
+          colors={["#FFFFFF", "#D0D4E3"]}
+          start={{ x: 0, y: 0.1 }}
+          end={{ x: 1, y: 0.9 }}
+          style={{
+            flex: 1,
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.textContainer}>
+            <Text style={styles.Title}>Hello Again!</Text>
+            <Text style={styles.Subtitle}>
+              Welcome back, You have been missed!
+            </Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder="Email"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="Password"
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              style={styles.input}
+              secureTextEntry
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={handleLogin} style={styles.button}>
+              <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.registerContainer}>
+            <TouchableOpacity
+              style={styles.registerBtn}
+              onPress={() => {
+                navigation.navigate("Register");
+              }}
+            >
+              <Text style={styles.registerText}>Register</Text>
+            </TouchableOpacity>
+          </View>
+        </LinearGradient>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 };
 

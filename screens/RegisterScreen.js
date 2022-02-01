@@ -5,6 +5,8 @@ import {
   KeyboardAvoidingView,
   TextInput,
   TouchableOpacity,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
 import React, { useState } from "react";
 import { auth } from "../firebase";
@@ -30,71 +32,73 @@ const RegisterScreen = (props) => {
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <LinearGradient
-        colors={["#FFFFFF", "#D0D4E3"]}
-        start={{ x: 0, y: 0.1 }}
-        end={{ x: 1, y: 0.9 }}
-        style={{
-          flex: 1,
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
-        <View style={styles.textContainer}>
-          <Text style={styles.Title}>Hello!</Text>
-          <Text style={styles.Subtitle}>
-            Welcome to Nite, it's a pleasure to have you here!
-          </Text>
-        </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-            style={styles.input}
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            style={styles.input}
-            secureTextEntry
-          />
-          <TextInput
-            placeholder="Confirm Password"
-            value={conf}
-            onChangeText={(text) => setConf(text)}
-            style={styles.input}
-            secureTextEntry
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => {
-              if (password === conf) {
-                handleSigUp();
-                //clear fields
-              } else {
-                alert("Password and Confirmation field don't match!");
-                //clear fields
-              }
-            }}
-            style={[styles.button, styles.buttonOutline]}
-          >
-            <Text style={styles.buttonOutlineText}>Register</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.navigateLogin}>
-          <TouchableOpacity
-            style={styles.loginBtn}
-            onPress={() => navigation.navigate("Login")}
-          >
-            <Text style={styles.loginTxt}>Login</Text>
-          </TouchableOpacity>
-        </View>
-      </LinearGradient>
-    </KeyboardAvoidingView>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <LinearGradient
+          colors={["#FFFFFF", "#D0D4E3"]}
+          start={{ x: 0, y: 0.1 }}
+          end={{ x: 1, y: 0.9 }}
+          style={{
+            flex: 1,
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.textContainer}>
+            <Text style={styles.Title}>Hello!</Text>
+            <Text style={styles.Subtitle}>
+              Welcome to Nite, it's a pleasure to have you here!
+            </Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder="Email"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="Password"
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              style={styles.input}
+              secureTextEntry
+            />
+            <TextInput
+              placeholder="Confirm Password"
+              value={conf}
+              onChangeText={(text) => setConf(text)}
+              style={styles.input}
+              secureTextEntry
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => {
+                if (password === conf) {
+                  handleSigUp();
+                  //clear fields
+                } else {
+                  alert("Password and Confirmation field don't match!");
+                  //clear fields
+                }
+              }}
+              style={[styles.button, styles.buttonOutline]}
+            >
+              <Text style={styles.buttonOutlineText}>Register</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.navigateLogin}>
+            <TouchableOpacity
+              style={styles.loginBtn}
+              onPress={() => navigation.navigate("Login")}
+            >
+              <Text style={styles.loginTxt}>Login</Text>
+            </TouchableOpacity>
+          </View>
+        </LinearGradient>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 };
 
