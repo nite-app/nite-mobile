@@ -24,7 +24,7 @@ const LoginScreen = (props) => {
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged((user) => {
   //     if (user) {
-  //       navigation.navigate("Home");
+  //       navigation.replace("Home");
   //     }
   //   });
 
@@ -37,6 +37,7 @@ const LoginScreen = (props) => {
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("Logged in as: " + user.email);
+        navigation.navigate("Home");
       })
       .catch((error) => alert(error.message));
   };
