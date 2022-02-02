@@ -67,10 +67,9 @@ const styles = StyleSheet.create({
     //fontSize: 38,
     fontSize: height * 0.047,
     fontWeight: "bold",
-    //marginBottom: 15, !!!
     marginBottom: height*0.018473,
     textAlign: "center",
-    //marginBottom: 25, !!!
+    //marginBottom: 25,
     marginBottom: height*0.030788,
   },
   Subtitle: {
