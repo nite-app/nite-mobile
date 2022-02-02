@@ -2,6 +2,11 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
+import { Dimensions } from "react-native";
+
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const StartPage = () => {
   const navigation = useNavigation();
@@ -48,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     //marginTop: 50,
-    marginTop: height*0.06157,
+    marginTop: height*0.06156,
   },
   Image: {
     //width: 360,
