@@ -12,11 +12,10 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
-import { NavigationContainer, validatePathConfig } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 
-const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
 const LoginScreen = (props) => {
@@ -122,7 +121,8 @@ const styles = StyleSheet.create({
     marginBottom: height*0.01847,
     //paddingVertical: 20,
     paddingVertical: height*0.0246,
-    paddingHorizontal: 25,
+    //paddingHorizontal: 25,
+    paddingHorizontal: height*0.03079,
     //borderRadius: 20,
     borderRadius: height*0.0246,
      //fontSize: 18,
@@ -135,7 +135,8 @@ const styles = StyleSheet.create({
     //padding: 22,
     padding: height*0.0271,
     backgroundColor: "#FF6768",
-    borderRadius: 20,
+    //borderRadius: 20,
+    borderRadius: height*0.0246,
     //marginBottom: 15,
     marginBottom: height*0.01847,
     alignItems: "center",
