@@ -8,6 +8,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import { auth } from "../firebase";
 import { useNavigation } from "@react-navigation/native";
+import { Dimensions } from "react-native";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
