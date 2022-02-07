@@ -1,19 +1,17 @@
-import { StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
-import React, { useState, useRef } from "react";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import React from "react";
 import slides from "../slides";
 import OnboardingItem from "./OnboardingItem";
 
 const Onboarding = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <FlatList
         data={slides}
         renderItem={({ item }) => <OnboardingItem item={item} />}
-        horizontal={true}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
+        horizontal
         pagingEnabled
-        keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
@@ -21,8 +19,4 @@ const Onboarding = () => {
 
 export default Onboarding;
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
-  },
-});
+const styles = StyleSheet.create({});

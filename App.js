@@ -7,6 +7,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import HomeScreen from "./screens/HomeScreen";
 import StartPage from "./screens/StartPage";
 import Onboarding from "./components/Onboarding";
+import OnScreen from "./screens/OnScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Onboarding"
-          component={Onboarding}
+          component={OnScreen}
           options={{ headerShown: false }}
         ></Stack.Screen>
         <Stack.Screen
