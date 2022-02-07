@@ -4,7 +4,7 @@ import Onboarding from "../components/Onboarding";
 
 const OnScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Onboarding />
     </View>
   );
@@ -12,4 +12,9 @@ const OnScreen = () => {
 
 export default OnScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FFFFFF",
+    flex: 1,
+  },
+});
