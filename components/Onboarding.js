@@ -36,7 +36,6 @@ const Onboarding = () => {
           bounces={true}
         />
       </View>
-
       <Paginator data={slides} scrollX={scrollX} />
     </View>
   );
@@ -49,6 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
     justifyContent: "flex-start",
+    alignItems: "center",
     marginTop: -50,
   },
 });

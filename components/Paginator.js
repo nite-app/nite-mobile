@@ -18,13 +18,13 @@ const Paginator = ({ data, scrollX }) => {
         const dotWidth = scrollX.interpolate({
           inputRange,
           outputRange: [10, 20, 10],
-          //extrapolate: "clamp",
+          extrapolate: "clamp",
         });
 
         const opacity = scrollX.interpolate({
           inputRange,
           outputRange: [0.7, 1, 0.7],
-          //extrapolate: "clamp",
+          extrapolate: "clamp",
         });
 
         return (

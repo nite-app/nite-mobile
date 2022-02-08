@@ -19,4 +19,21 @@ export default [
       "Data is yours, without exceptions. This is your personal space to Improve!",
     image: require("./assets/img/OnSecurity.png"),
   },
+  {
+    id: 4,
+    lasttitle: "Are you ready?",
+    lastdescription: "We hope you'll enjoy your journey with us!",
+    button: "Continue",
+    styling: {
+      maxHeight: 75,
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      width: 200,
+      height: 50,
+      borderRadius: 25,
+      backgroundColor: "#ff6768",
+      marginTop: 200,
+    },
+  },
 ];
