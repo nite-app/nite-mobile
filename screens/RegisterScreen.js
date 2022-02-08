@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   navigateLogin: {
     //marginTop: 120,
-    marginTop: height * 0.234375,
+    marginTop: height * 0.15,
   },
   loginBtn: {},
   loginTxt: {
