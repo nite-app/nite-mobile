@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
   registerContainer: {
     //marginTop: 190,
-    marginTop: height * 0.23399,
+    marginTop: height * 0.24099,
   },
   registerBtn: {},
   registerText: {
