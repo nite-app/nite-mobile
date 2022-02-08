@@ -24,15 +24,14 @@ const StartPage = () => {
         </Text>
       </View>
       <View style={styles.BtnContainer}>
-        <TouchableOpacity style={styles.Btn}>
-          <Text
-            style={styles.BtnText}
+        <TouchableOpacity style={styles.Btn}
+          
+            style={styles.Btn}
             onPress={() => {
               navigation.navigate("Register");
             }}
-          >
-            Register
-          </Text>
+         > 
+            <Text style={styles.BtnText}>Register</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.Btn}
