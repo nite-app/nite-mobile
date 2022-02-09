@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   Animated,
+  FlatList,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { auth } from "../firebase";
@@ -62,5 +63,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     fontWeight: "600",
+  },
+  flat: {
+    flex: 1,
   },
 });
