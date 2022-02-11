@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList, Animated } from "react-native";
 import React, { useState, useRef } from "react";
-import slides from "../slides";
+import slides from "../../slides";
 import OnboardingItem from "./OnboardingItem";
 import Paginator from "./Paginator";
 import AsyncStorage from "@react-native-async-storage/async-storage";

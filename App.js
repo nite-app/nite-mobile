@@ -4,11 +4,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { useState, useEffect } from "react";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import HomeScreen from "./screens/HomeScreen";
-import StartPage from "./screens/StartPage";
-import OnScreen from "./screens/OnScreen";
+import LoginScreen from "./screens/Auth/LoginScreen";
+import RegisterScreen from "./screens/Auth/RegisterScreen";
+import HomeScreen from "./screens/Feed/HomeScreen";
+import StartPage from "./screens/Feed/StartPage";
+import OnScreen from "./screens/Feed/OnScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

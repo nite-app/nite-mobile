@@ -1,4 +1,3 @@
-//rnfes
 import {
   StyleSheet,
   Text,
@@ -9,28 +8,29 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import { auth } from "../firebase";
+import React, { useState } from "react";
+import { auth } from "../../firebase";
+import { useNavigation } from "@react-navigation/native";
 import { NavigationContainer } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { useNavigation } from "@react-navigation/native";
 import { Dimensions } from "react-native";
 
 const height = Dimensions.get("window").height;
 
-const LoginScreen = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+const RegisterScreen = (props) => {
   const navigation = useNavigation();
 
-  const handleLogin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [conf, setConf] = useState("");
+
+  const handleSigUp = () => {
     auth
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log("Logged in as: " + user.email);
-        navigation.navigate("Home");
+        console.log("Registered as: " + user.email);
+        alert("Successfully Registered " + user.email);
       })
       .catch((error) => alert(error.message));
   };
@@ -49,9 +49,9 @@ const LoginScreen = (props) => {
           }}
         >
           <View style={styles.textContainer}>
-            <Text style={styles.Title}>Hello Again!</Text>
+            <Text style={styles.Title}>Hello!</Text>
             <Text style={styles.Subtitle}>
-              Welcome back, You have been missed!
+              Welcome to Nite, it's a pleasure to have you here!
             </Text>
           </View>
           <View style={styles.inputContainer}>
@@ -68,20 +68,36 @@ const LoginScreen = (props) => {
               style={styles.input}
               secureTextEntry
             />
+            <TextInput
+              placeholder="Confirm Password"
+              value={conf}
+              onChangeText={(text) => setConf(text)}
+              style={styles.input}
+              secureTextEntry
+            />
           </View>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={handleLogin} style={styles.button}>
-              <Text style={styles.buttonText}>Login</Text>
+            <TouchableOpacity
+              onPress={() => {
+                if (password === conf) {
+                  handleSigUp();
+                  //clear fields
+                } else {
+                  alert("Password and Confirmation field don't match!");
+                  //clear fields
+                }
+              }}
+              style={[styles.button, styles.buttonOutline]}
+            >
+              <Text style={styles.buttonOutlineText}>Register</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.registerContainer}>
+          <View style={styles.navigateLogin}>
             <TouchableOpacity
-              style={styles.registerBtn}
-              onPress={() => {
-                navigation.navigate("Register");
-              }}
+              style={styles.loginBtn}
+              onPress={() => navigation.navigate("Login")}
             >
-              <Text style={styles.registerText}>Register</Text>
+              <Text style={styles.loginTxt}>Login</Text>
             </TouchableOpacity>
           </View>
         </LinearGradient>
@@ -90,7 +106,7 @@ const LoginScreen = (props) => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -162,12 +178,12 @@ const styles = StyleSheet.create({
     fontSize: height * 0.032,
     textAlign: "center",
   },
-  registerContainer: {
-    //marginTop: 190,
-    marginTop: height * 0.24099,
+  navigateLogin: {
+    //marginTop: 120,
+    marginTop: height * 0.15,
   },
-  registerBtn: {},
-  registerText: {
+  loginBtn: {},
+  loginTxt: {
     //fontSize: 16,
     fontSize: height * 0.0197,
     color: "blue",

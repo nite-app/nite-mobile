@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import React, { useState, useEffect } from "react";
-import Onboarding from "../components/Onboarding";
+import Onboarding from "../../components/Onboarding/Onboarding";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import HomeScreen from "./HomeScreen";
 

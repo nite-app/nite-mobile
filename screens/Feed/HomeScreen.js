@@ -7,7 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useNavigation } from "@react-navigation/native";
 import { Dimensions } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
