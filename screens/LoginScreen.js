@@ -24,16 +24,6 @@ const LoginScreen = (props) => {
 
   const navigation = useNavigation();
 
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       navigation.replace("Home");
-  //     }
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
-
   const handleLogin = () => {
     auth
       .signInWithEmailAndPassword(email, password)

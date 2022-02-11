@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import slides from "../slides";
 import OnboardingItem from "./OnboardingItem";
 import Paginator from "./Paginator";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Onboarding = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,6 +13,18 @@ const Onboarding = () => {
   const viewableItemsChanged = useRef(({ viewableItems }) => {
     setCurrentIndex(viewableItems[0].index);
   }).current;
+
+  const scrollTo = async () => {
+    if (currentIndex < slides.length) {
+      slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
+    } else {
+      try {
+        await AsyncStorage.setItem("@viewedOnboarding", "true");
+      } catch (error) {
+        console.log("Error Onboarding.js setItem: " + error.message);
+      }
+    }
+  };
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
 

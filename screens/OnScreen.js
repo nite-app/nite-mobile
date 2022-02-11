@@ -1,11 +1,48 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import React, { useState, useEffect } from "react";
 import Onboarding from "../components/Onboarding";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import HomeScreen from "./HomeScreen";
 
-const OnScreen = () => {
+const Loading = () => {
   return (
     <View style={styles.container}>
-      <Onboarding />
+      <ActivityIndicator size="large" />
+    </View>
+  );
+};
+
+const OnScreen = () => {
+  const [loading, setLoading] = useState(true);
+  const [viewedOnboarding, setViewedOnboarding] = useState(false);
+
+  const checkOnboarding = async () => {
+    try {
+      const value = await AsyncStorage.getItem("@viewedOnboarding");
+
+      if (value !== null) {
+        setViewedOnboarding(true);
+      }
+    } catch {
+      console.log("error @checkOnboarding: ", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    checkOnboarding();
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      {loading ? (
+        <Loading />
+      ) : viewedOnboarding ? (
+        <HomeScreen />
+      ) : (
+        <Onboarding />
+      )}
     </View>
   );
 };
@@ -16,5 +53,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
