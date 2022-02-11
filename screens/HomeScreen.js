@@ -10,9 +10,19 @@ import React, { useEffect, useRef, useState } from "react";
 import { auth } from "../firebase";
 import { useNavigation } from "@react-navigation/native";
 import { Dimensions } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+
+  const clearOnboarding = async () => {
+    try {
+      await AsyncStorage.removeItem("@viewedOnboarding");
+      console.log("Cleared Onboarding Successfully");
+    } catch (error) {
+      console.log("Error in LoginScreen.js clearOnboarding: " + error.message);
+    }
+  };
 
   const handleSignOut = () => {
     auth
@@ -31,6 +41,9 @@ const HomeScreen = () => {
       </Text>
       <TouchableOpacity style={styles.signOut} onPress={handleSignOut}>
         <Text style={styles.btnText}>Sign Out</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.signOut} onPress={clearOnboarding}>
+        <Text style={styles.btnText}>Clear</Text>
       </TouchableOpacity>
     </View>
   );

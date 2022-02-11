@@ -30,6 +30,7 @@ const RegisterScreen = (props) => {
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("Registered as: " + user.email);
+        alert("Successfully Registered " + user.email);
       })
       .catch((error) => alert(error.message));
   };
