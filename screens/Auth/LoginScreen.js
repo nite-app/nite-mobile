@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
@@ -23,16 +23,6 @@ const LoginScreen = (props) => {
   const [password, setPassword] = useState("");
 
   const navigation = useNavigation();
-
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       navigation.replace("Home");
-  //     }
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
 
   const handleLogin = () => {
     auth
@@ -174,7 +164,7 @@ const styles = StyleSheet.create({
   },
   registerContainer: {
     //marginTop: 190,
-    marginTop: height * 0.23399,
+    marginTop: height * 0.24099,
   },
   registerBtn: {},
   registerText: {

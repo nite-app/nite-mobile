@@ -9,7 +9,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationContainer } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -30,6 +30,7 @@ const RegisterScreen = (props) => {
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("Registered as: " + user.email);
+        alert("Successfully Registered " + user.email);
       })
       .catch((error) => alert(error.message));
   };
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
   },
   navigateLogin: {
     //marginTop: 120,
-    marginTop: height * 0.234375,
+    marginTop: height * 0.15,
   },
   loginBtn: {},
   loginTxt: {
