@@ -4,9 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import { Dimensions } from "react-native";
 
-
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 const StartPage = () => {
   const navigation = useNavigation();
@@ -14,7 +13,7 @@ const StartPage = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/img/StartImg.png")}
+        source={require("../../assets/img/StartImg.png")}
         style={styles.Image}
       ></Image>
       <View style={styles.TextContainer}>
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    marginTop: height*0.06156,
+    marginTop: height * 0.06156,
   },
   Image: {
     width: width * 0.96,
@@ -60,41 +59,41 @@ const styles = StyleSheet.create({
   TextContainer: {
     width: width * 0.96,
     alignItems: "center",
-    marginTop: height*0.04926,
+    marginTop: height * 0.04926,
   },
   Title: {
     fontSize: height * 0.047,
     fontWeight: "bold",
-    marginBottom: height*0.018473,
+    marginBottom: height * 0.018473,
     textAlign: "center",
-    marginBottom: height*0.030788,
+    marginBottom: height * 0.030788,
   },
   Subtitle: {
-    fontSize: height*0.027,
+    fontSize: height * 0.027,
     textAlign: "center",
   },
   BtnContainer: {
     position: "absolute",
-    bottom: height*0.06157,
+    bottom: height * 0.06157,
     display: "flex",
     flexDirection: "row",
-    width: width*0.8,
-    height: height*0.0923,
+    width: width * 0.8,
+    height: height * 0.0923,
     backgroundColor: "#E5E7ED",
-    borderRadius: height*0.0246,
+    borderRadius: height * 0.0246,
     justifyContent: "space-evenly",
     alignItems: "center",
   },
   Btn: {
-    width: width*0.373,
-    borderRadius: height*0.018473,
-    height: height*0.08,
+    width: width * 0.373,
+    borderRadius: height * 0.018473,
+    height: height * 0.08,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#FFFFFF",
   },
   BtnText: {
-    fontSize: height*0.022,
+    fontSize: height * 0.022,
     fontWeight: "600",
   },
 });
