@@ -14,8 +14,10 @@ const Onboarding = () => {
     setCurrentIndex(viewableItems[0].index);
   }).current;
 
+  const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
+
   const scrollTo = async () => {
-    if (currentIndex < slides.length) {
+    if (currentIndex < slides.length - 1) {
       slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
     } else {
       try {
@@ -25,8 +27,6 @@ const Onboarding = () => {
       }
     }
   };
-
-  const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
 
   return (
     <View style={styles.container}>

@@ -18,13 +18,13 @@ const OnScreen = () => {
 
   const checkOnboarding = async () => {
     try {
-      const value = await AsyncStorage.getItem("@viewedOnboarding");
+      const value = await AsyncStorage.getItem("viewedOnboarding");
 
       if (value !== null) {
         setViewedOnboarding(true);
       }
-    } catch {
-      console.log("error @checkOnboarding: ", err);
+    } catch (error) {
+      console.log("Error OnScreen.js: " + error.message);
     } finally {
       setLoading(false);
     }
@@ -34,15 +34,23 @@ const OnScreen = () => {
     checkOnboarding();
   }, []);
 
+  function Authenticated() {
+    const asd = () => {
+      if (loading == true) {
+        return <Loading />;
+      } else {
+        if (viewedOnboarding == true) {
+          return <HomeScreen />;
+        } else {
+          return <Onboarding />;
+        }
+      }
+    };
+  }
+
   return (
     <View style={styles.container}>
-      {loading ? (
-        <Loading />
-      ) : viewedOnboarding ? (
-        <HomeScreen />
-      ) : (
-        <Onboarding />
-      )}
+      <Authenticated asd />
     </View>
   );
 };
