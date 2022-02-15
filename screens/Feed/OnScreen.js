@@ -16,9 +16,12 @@ const OnScreen = () => {
   const [loading, setLoading] = useState(true);
   const [viewedOnboarding, setViewedOnboarding] = useState(false);
 
+  console.log("Before check: " + viewedOnboarding);
+
   const checkOnboarding = async () => {
+    console.log("checking");
     try {
-      const value = await AsyncStorage.getItem("viewedOnboarding");
+      const value = await AsyncStorage.getItem("@viewedOnboarding");
 
       if (value !== null) {
         setViewedOnboarding(true);
@@ -34,23 +37,15 @@ const OnScreen = () => {
     checkOnboarding();
   }, []);
 
-  function Authenticated() {
-    const asd = () => {
-      if (loading == true) {
-        return <Loading />;
-      } else {
-        if (viewedOnboarding == true) {
-          return <HomeScreen />;
-        } else {
-          return <Onboarding />;
-        }
-      }
-    };
-  }
-
   return (
     <View style={styles.container}>
-      <Authenticated asd />
+      {loading ? (
+        <Loading />
+      ) : viewedOnboarding ? (
+        <HomeScreen />
+      ) : (
+        <Onboarding />
+      )}
     </View>
   );
 };
