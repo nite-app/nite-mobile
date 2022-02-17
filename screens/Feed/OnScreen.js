@@ -13,39 +13,16 @@ const Loading = () => {
 };
 
 const OnScreen = () => {
-  const [loading, setLoading] = useState(true);
-  const [viewedOnboarding, setViewedOnboarding] = useState(false);
-
-  console.log("Before check: " + viewedOnboarding);
-
-  const checkOnboarding = async () => {
-    console.log("checking");
-    try {
-      const value = await AsyncStorage.getItem("@viewedOnboarding");
-
-      if (value !== null) {
-        setViewedOnboarding(true);
-      }
-    } catch (error) {
-      console.log("Error OnScreen.js: " + error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    checkOnboarding();
-  }, []);
-
   return (
     <View style={styles.container}>
-      {loading ? (
+      {/* {loading ? (
         <Loading />
       ) : viewedOnboarding ? (
         <HomeScreen />
       ) : (
         <Onboarding />
-      )}
+      )} */}
+      <Onboarding />
     </View>
   );
 };

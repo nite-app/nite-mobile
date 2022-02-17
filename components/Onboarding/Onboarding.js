@@ -19,12 +19,6 @@ const Onboarding = () => {
   const scrollTo = async () => {
     if (currentIndex < slides.length - 1) {
       slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
-    } else {
-      try {
-        await AsyncStorage.setItem("@viewedOnboarding", "true");
-      } catch (error) {
-        console.log("Error Onboarding.js setItem: " + error.message);
-      }
     }
   };
 
