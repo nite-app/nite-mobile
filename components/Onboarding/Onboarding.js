@@ -40,7 +40,7 @@ const Onboarding = () => {
           onViewableItemsChanged={viewableItemsChanged}
           viewabilityConfig={viewConfig}
           ref={slidesRef}
-          bounces={true}
+          bounces={false}
         />
       </View>
       <Paginator data={slides} scrollX={scrollX} />
